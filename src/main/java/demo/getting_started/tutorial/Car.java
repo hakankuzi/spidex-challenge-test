@@ -8,17 +8,31 @@ public class Car {
 	private String preview;
 	private String description;
 	private Integer price;
+	private String colour;
 
 	public Car() {
 	}
 
-	public Car(Integer id, String model, String make, String description, String preview, Integer price) {
+
+
+	public Car(Integer id, String model, String make, String preview, String description, Integer price,
+			   String colour) {
+		super();
 		this.id = id;
 		this.model = model;
 		this.make = make;
 		this.preview = preview;
 		this.description = description;
 		this.price = price;
+		this.colour = colour;
+	}
+
+	public String getColour() {
+		return colour;
+	}
+
+	public void setColour(String colour) {
+		this.colour = colour;
 	}
 
 	public Integer getId() {

@@ -1,0 +1,62 @@
+<window title="Add New Car" width="50%"  style="margin-top:5px" border="normal"
+	apply="demo.getting_started.mvc.CrudController">
+	<vlayout>
+			<div height="100%">
+				<grid>
+					<rows>
+						<row>
+							Model:
+							<textbox id="txtModel" type="text"  />
+						</row>
+						<row>
+							Colour:
+							<textbox id="txtColour" type="text" />
+						</row>
+						<row>
+							Make :
+							<textbox id="txtMake" type="text"  />
+						</row>
+					    <row>
+                            Price :
+                    	<textbox xmlns:w="client" id="txtPrice" >
+                  		<attribute w:name="doKeyDown_"><![CDATA[
+                  			function (evt) {
+                  				var keyCode = event.keyCode;
+                  				if( keyCode == 8
+                  					|| keyCode == 13
+                  					|| keyCode == 16
+                  					|| (keyCode >= 35 && keyCode <= 40)
+                  					|| keyCode == 46) {
+                  					this.$doKeyDown_(evt);
+                  				} else if ( !evt.shiftKey && (keyCode >= 48 && keyCode <= 57)
+                  					|| (keyCode >= 96 && keyCode <= 105)) {
+                  					this.$doKeyDown_(evt);
+                  				} else {
+                  					evt.stop();
+                  					return;
+                  				}
+                  			}
+                  		]]></attribute>
+                  	</textbox>
+                        </row>
+                     <row>
+                      	Description:
+                      <textbox id="txtDescription" type="text"  />
+                      </row>
+                      <row>
+                         Preview:
+                       <textbox id="txtPreview" rows="5"  />
+                       </row>
+
+
+					</rows>
+				</grid>
+			</div>
+			<hlayout>
+				<button label="Save" id="saveBtn" />
+			</hlayout>
+		</vlayout>
+
+
+
+</window>

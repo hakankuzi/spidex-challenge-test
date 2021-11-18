@@ -1,21 +1,34 @@
-<window title="Search" width="600px" border="normal"
+<window title="Search" width="100%" style="margin-top:5px" border="normal"
 	apply="demo.getting_started.mvc.SearchController">
 	<hbox align="center">
 		Keyword:
 		<textbox id="keywordBox" />
 		<button id="searchButton" label="Search" iconSclass="z-icon-search" />
+
+    <div height="10px"/>
+    <button label="Add New Car" id="gotoAddBtn" />
+     <button label="Remove Car" id="removeBtn" />
+
+    <checkbox label="On/Off">
+        <attribute name="onCheck"><![CDATA[
+            carListBox.pagingChild.mold = "os".equals(carListBox.pagingChild.mold) ? "default" : "os";
+        ]]></attribute>
+    </checkbox>
+
 	</hbox>
-	<listbox id="carListbox" emptyMessage="Test" height="160px" style="margin-top:10px">
+	<listbox id="carListBox" height="100%" style="margin-top:10px"  mold="paging" pageSize="5" >
 		<listhead>
-			<listheader label="Model" />
-			<listheader label="Make" />
-			<listheader label="Price" width="20%"/>
+			<listheader  label="Model" sort="auto(model)" />
+			<listheader label="Colour" sort="auto(colour)" />
+			<listheader label="Make" sort="auto(make)" />
+			<listheader label="Price" width="20%" sort="auto(price)" />
 		</listhead>
 		<template name="model">
 			<listitem>
-				<listcell label="${each.model}" ></listcell>
+				<listcell label="${each.model}"></listcell>
+				<listcell label="${each.colour}"></listcell>
 				<listcell label="${each.make}"></listcell>
-				<listcell>$<label value="${each.price}"/></listcell>
+				<listcell>$<label value="${each.price}" style="color:${each.price gt 50000 ? 'red': each.price gt 20000 ? 'yellow' : 'green'}"/></listcell>
 			</listitem>
 		</template>
 	</listbox>
@@ -24,6 +37,9 @@
 		<vbox>
 			<hlayout>
 				Model : <label id="modelLabel" style="font-weight:bold"/>
+			</hlayout>
+			<hlayout>
+				Model : <label id="colourLabel" style="font-weight:bold"/>
 			</hlayout>
 			<hlayout>
 				Make : <label id="makeLabel" style="font-weight:bold"/>
@@ -35,4 +51,6 @@
 			<label id="descriptionLabel" />
 		</vbox>
 	</hbox>
+
+
 </window>

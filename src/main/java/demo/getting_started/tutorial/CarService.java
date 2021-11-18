@@ -19,6 +19,4 @@ public interface CarService {
      */
     public List<Car> search(String keyword);
 
-    public void addCar(Car car);
-    public void deleteCar(Integer id);
 }
