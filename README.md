@@ -14,5 +14,12 @@ I added unit test cases for MockDataService as you can see under the test packag
       a. We can add update page
       b. We can add diagram pages based on price and year for clarifying what's going on any specific car models. 
       c. We can add bid feature. for example we can sell any car with bid. This feature works real-time and we can define specific time range. Whoever makes the highest bid will sell the car.
+      
+      
+      
+ 3. Architecture Task 
+        1 - It's written by documents not mandatory. but I've been reading documentations. because I need to learn that what happened nowadays as a best practice. 
+        2 - If you want me to provide I can do this as soon as possible
+   
 
       
